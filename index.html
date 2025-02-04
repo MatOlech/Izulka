@@ -15,23 +15,22 @@
             background-color: #f0f8ff;
             font-family: Arial, sans-serif;
         }
-
         .heart-container {
             position: relative;
-            width: 150px;
-            height: 150px;
-            animation: beat 1.5s infinite;
+            width: 200px;
+            height: 200px;
         }
-
         .heart {
             position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
             width: 100px;
             height: 100px;
-            background-color: red;
-            transform: rotate(45deg);
+            background-color: #ff4d4d;
             animation: beat 1.5s infinite;
+            box-shadow: 0 0 40px rgba(255, 77, 77, 0.5);
         }
-
         .heart::before,
         .heart::after {
             content: '';
@@ -39,44 +38,46 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            background-color: red;
+            background-color: #ff4d4d;
         }
-
         .heart::before {
             top: -50px;
             left: 0;
         }
-
         .heart::after {
             top: 0;
-            left: 50px;
+            left: -50px;
         }
-
         .text {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20px;
-            color: white;
-            font-weight: bold;
+            width: 100%;
             text-align: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            line-height: 1.5;
+            z-index: 2;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
         }
-
         @keyframes beat {
             0%, 100% {
-                transform: scale(1) rotate(45deg);
+                transform: translate(-50%, -50%) rotate(45deg) scale(1);
             }
             50% {
-                transform: scale(1.2) rotate(45deg);
+                transform: translate(-50%, -50%) rotate(45deg) scale(1.1);
             }
         }
     </style>
 </head>
 <body>
     <div class="heart-container">
-        <div class="heart">
-            <div class="text">Izulka<br>Kocham Cię</div>
+        <div class="heart"></div>
+        <div class="text">
+            Izulka<br>Kocham Cię
         </div>
     </div>
 </body>
